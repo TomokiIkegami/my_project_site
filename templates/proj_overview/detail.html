@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block contents %}
+<!DOCTYPE html>
+<body>
+    <div class="d-flex justify-contact-between flex-wrap flex-md-nowrap align-items-center mt-5 border-bottom">
+        <h1 class="h2">{{ article.title }}</h1>
+    </div>
+    {{ article.article }}
+    <br><br><br>
+    <img src="{{article.img_path_1}}" width="100%">
+
+    <div class="d-flex justify-contact-between flex-wrap flex-md-nowrap align-items-center mt-5 border-bottom">
+        <h1 class="h2">{{ article.title2 }}</h1>
+    </div>
+    {{ article.article2|safe }}
+    <br><br>
+</body>
+</html>
+{% endblock %}
