@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-#f369+1l28!j%+u!0ky$dlxgbn0h%)=6uyamdguh^*zjkbmg6y
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost','.pythonanywhere.com','tikegami.pythonanywhere.com']
 
 
 # Application definition
@@ -133,6 +133,17 @@ STATIC_ROOT = '/var/www/{}/static'.format(PROJECT_NAME)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+# クッキーの誤送信などの防止用
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+
 # シークレットキーを隠す
 from django.core.management.utils import get_random_secret_key
 SECRET_KEY = get_random_secret_key()  
+
+# local_settings.py の読み込み処理
+# try文はエラーで落ちないように使ってる
+try:
+    from .local_settings import *
+except:
+    pass
