@@ -23,8 +23,6 @@ from . import views
 urlpatterns = [
     # proj_overviewのURLの場合、proj_overviewのurls.pyを呼び出す
     path('proj_overview/',include('proj_overview.urls')),  
-    # 今回作成するアプリ「app_folder」にアクセスするURL
-    path('app_folder/', include('app_folder.urls')),
     # 何もURLを指定しない場合（app_config/view.pyで、自動的に「app_folder」にアクセスするように設定済み）
     path('', views.index, name='index'),
     # 管理サイトにアクセスするURL
