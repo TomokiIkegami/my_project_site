@@ -7,7 +7,7 @@ from .models import ArticleInfo # 記事の情報が入ったDB
 # 記事の情報を辞書に格納して、proj_article.htmlに返す
 def showAllProjects(request):
     context = {}
-    all_article = ArticleInfo.objects.all() # 全記事を取得
+    all_article = ArticleInfo.objects.all().order_by('project_start_date').reverse() # 全記事を取得
     context = {'all_article':all_article,}  # contextに全記事を格納
     print(all_article[0].article)
     return render(request, 'proj_overview/all_projects.html',context)   
