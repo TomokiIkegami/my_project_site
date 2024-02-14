@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <body>
     <div class="d-flex justify-contact-between flex-wrap flex-md-nowrap align-items-center mt-5 border-bottom">
-        <h1 class="h2">{{ article.title }}</h1>
+        <h1 class="h2">{{ article.title|safe }}</h1>
     </div>
     {{ article.article }}
     <br><br><br>
