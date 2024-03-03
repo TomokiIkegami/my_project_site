@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block contents %}
+<div class="d-flex justify-contact-between flex-wrap flex-md-nowrap align-items-center mt-5 border-bottom">
+    <h1 class="h2">Contact</h1>
+</div>
+<!-- <div>
+    <h4>This is a contact form.</h4>
+</div> -->
+<p>
+    <div class = "row">
+        <div class = "col-md-8">
+        <form method="POST">{% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit"  class = "btn btn-primary">Send</button>
+        </form>
+        </div>
+    </div>
+</p>
+
+{% endblock %}

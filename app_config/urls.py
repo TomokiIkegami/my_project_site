@@ -19,6 +19,7 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from . import views
+from .views import ContactFormView, ContactResultView
 
 urlpatterns = [
     # proj_overviewのURLの場合、proj_overviewのurls.pyを呼び出す
@@ -27,6 +28,10 @@ urlpatterns = [
     path('', views.index, name='index'),
     # 管理サイトにアクセスするURL
     path('admin/',admin.site.urls),
+    # email送信フォームにアクセスするURL
+    path('contact/',ContactFormView.as_view(), name = 'contact_form'),
+    # emailの送信結果をユーザーに表示するためのURL
+    path('contact/result/',ContactResultView.as_view(), name='contact_result'),
 ]
 
 # メディアファイル公開用のURL設定
