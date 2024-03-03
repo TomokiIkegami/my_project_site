@@ -29,6 +29,7 @@ class ContactResultView(TemplateView):
     
 class index(View):
     def get(self, request, *args, **kwargs):
-        return redirect(reverse('proj_overview:top_page'))
+        # return redirect(reverse('proj_overview:top_page'))
+        return render(request,'top_page.html')  # return top page template directly
 
 index = index.as_view()
