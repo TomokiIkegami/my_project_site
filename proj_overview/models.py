@@ -11,3 +11,6 @@ class ArticleInfo(models.Model):
     img_path_1 = models.CharField(max_length=500,blank=True,null=True)
     title2 = models.CharField(max_length=50,blank=True,null=True)
     article2 = models.TextField()
+
+    def __str__(self):
+        return self.title   # This is for display title in admin page
