@@ -13,7 +13,10 @@ def showAllProjects(request):
     return render(request, 'proj_overview/all_projects.html',context)   
 
 def top_page(request):
-    return render(request,'proj_overview/top_page.html')
+    context = {}
+    all_article = ArticleInfo.objects.all().order_by('project_start_date').reverse() # 全記事を取得
+    context = {'all_article':all_article,}  # contextに全記事を格納
+    return render(request,'proj_overview/all_projects.html',context)
 
 def detail(request, id):    # ルートで指定した値をid変数として取り出す
     article = get_object_or_404(ArticleInfo, pk=id) # 指定したidのレコードに対応するオブジェクトを取得（pk=primary key、データを識別するための目印）
